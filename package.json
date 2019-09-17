@@ -1,5 +1,5 @@
 {
-  "name": "gulp-rm-lines",
+  "name": "gulp-delete-lines",
   "version": "0.0.10",
   "description": "A gulp plugin that will delete all lines that match one of the given regex filters.",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/YodasWs/gulp-rm-lines.git"
+    "url": "git://github.com/doublesharp/gulp-delete-lines.git"
   },
   "keywords": [
     "gulp",
@@ -28,7 +28,7 @@
   "author": "Sam Grundman <sam.gulp-rm-lines@yodas.ws>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YodasWs/gulp-rm-lines/issues"
+    "url": "https://github.com/doublesharp/gulp-delete-lines/issues"
   },
-  "homepage": "https://github.com/YodasWs/gulp-rm-lines"
+  "homepage": "https://github.com/doublesharp/gulp-delete-lines"
 }
