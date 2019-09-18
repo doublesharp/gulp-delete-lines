@@ -1,4 +1,5 @@
 const through = require('through2'),
+  log = require('fancy-log'),
   PluginError = require('plugin-error');
 
 module.exports = function (opt) {
@@ -9,7 +10,7 @@ module.exports = function (opt) {
 		}
 
 		if (file.isStream()) {
-			cb(new PluginError('gulp-rm-lines', 'Streaming not supported'));
+			cb(new PluginError('gulp-delete-lines', 'Streaming not supported'));
 			return;
 		}
 
@@ -21,9 +22,11 @@ module.exports = function (opt) {
     for (let i=0; i<lines.length; i++) {
 
       let match = false;
+      let filter = false;
 
       for (let j=0; j<opt.filters.length; j++) {
         if (lines[i].match(opt.filters[j])) {
+          filter = opt.filters[j];
           match = true;
           break;
         }
@@ -31,6 +34,8 @@ module.exports = function (opt) {
 
       if (!match) {
         newLines.push(lines[i]);
+      } else {
+        log('gulp-delete-lines removing match', filter)
       }
     }
 
@@ -42,6 +47,4 @@ module.exports = function (opt) {
 
 		cb();
   });
-
-  return es.through(gulpRmLines);
 };
